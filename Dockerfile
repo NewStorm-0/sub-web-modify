@@ -1,6 +1,7 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY . .
+RUN corepack enable
 RUN yarn install
 RUN yarn build
 
