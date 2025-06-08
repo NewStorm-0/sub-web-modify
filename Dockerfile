@@ -9,6 +9,7 @@ WORKDIR /app
 # 先拷贝依赖清单利用缓存
 COPY package.json yarn.lock ./
 # node:22 已自带 yarn 1.x，无需再 npm i -g yarn
+RUN corepack enable
 RUN yarn install --frozen-lockfile
 
 # 再拷贝源码并构建
